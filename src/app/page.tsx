@@ -85,7 +85,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Analysis Card */}
+      {/* Featured Analysis Card — NU (accent pink) */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 -mt-4 mb-10">
         <Link href="/nu-analysis" className="block group">
           <div className="card-base p-6 sm:p-8 card-glow hover:border-accent/30 transition-colors">
@@ -95,7 +95,7 @@ export default function Home() {
                   Featured Analysis
                 </span>
                 <h3 className="font-display text-featured text-white mt-2">
-                  NU — IS IT <span className="text-accent-light">A BUY?</span>
+                  NU vs ENVA <span className="text-accent-light">COMPARISON</span>
                 </h3>
                 <p className="text-muted text-sm mt-2 font-mono">
                   NYSE: NU &middot; Forward P/E 27x &middot; ROE 31%
@@ -114,24 +114,24 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* THM Featured Card */}
+      {/* THM Featured Card — (compare orange) */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-10">
         <Link href="/thm-review" className="block group">
-          <div className="card-base p-6 sm:p-8 card-glow hover:border-accent/30 transition-colors">
+          <div className="card-base p-6 sm:p-8 card-glow hover:border-compare/30 transition-colors">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="meta-label-xs text-accent-light">
+                <span className="meta-label-xs text-compare">
                   New Review
                 </span>
                 <h3 className="font-display text-featured text-white mt-2">
-                  THM — BUY IT <span className="text-accent-light">OR NOT?</span>
+                  THM — BUY IT <span className="text-compare">OR NOT?</span>
                 </h3>
                 <p className="text-muted text-sm mt-2 font-mono">
                   Int&apos;l Tower Hill Mines &middot; Gold $5,226 &middot; Mkt Cap ~$700M
                 </p>
               </div>
               <div className="shrink-0">
-                <span className="inline-flex items-center gap-2 px-5 py-3 border border-accent/40 text-accent-light font-semibold text-sm rounded uppercase tracking-wide group-hover:bg-accent/10 transition-colors">
+                <span className="inline-flex items-center gap-2 px-5 py-3 border border-compare/40 text-compare font-semibold text-sm rounded uppercase tracking-wide group-hover:bg-compare/10 transition-colors">
                   Read Review
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
