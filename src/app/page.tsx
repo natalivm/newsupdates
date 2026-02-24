@@ -79,19 +79,19 @@ export default function Home() {
             <nav className="hidden sm:flex items-center gap-4">
               <Link
                 href="/"
-                className="font-mono text-xs tracking-widest uppercase text-accent-light border-b border-accent-light pb-0.5"
+                className="meta-label-xs text-accent-light border-b border-accent-light pb-0.5"
               >
                 Home
               </Link>
               <Link
                 href="/nu-analysis"
-                className="font-mono text-xs tracking-widest uppercase text-muted hover:text-accent-light transition-colors"
+                className="meta-label-xs text-muted hover:text-accent-light transition-colors"
               >
                 NU Analysis
               </Link>
               <Link
                 href="/thm-review"
-                className="font-mono text-xs tracking-widest uppercase text-muted hover:text-accent-light transition-colors"
+                className="meta-label-xs text-muted hover:text-accent-light transition-colors"
               >
                 THM Review
               </Link>
@@ -100,7 +100,7 @@ export default function Home() {
           {!showForm && (
             <button
               onClick={() => setShowForm(true)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-semibold rounded tracking-wide uppercase hover:bg-accent-light transition-colors animate-glow-pulse"
+              className="btn-primary animate-glow-pulse"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -118,11 +118,11 @@ export default function Home() {
           <div className="animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 rounded px-3 py-1.5 mb-6">
               <span className="w-2 h-2 rounded-full bg-accent-light animate-pulse-dot" />
-              <span className="font-mono text-xs tracking-widest text-accent-light uppercase">
+              <span className="meta-label-xs text-accent-light">
                 Live Updates
               </span>
             </div>
-            <h2 className="font-display text-[clamp(48px,12vw,88px)] leading-[0.9] tracking-wide text-white mb-6">
+            <h2 className="font-display text-hero text-white mb-6">
               FINANCIAL<br />
               <span className="text-accent-light" style={{ WebkitTextStroke: "1px rgba(255,0,112,0.5)" }}>
                 NEWS
@@ -138,13 +138,13 @@ export default function Home() {
       {/* Featured Analysis Card */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 -mt-4 mb-10">
         <Link href="/nu-analysis" className="block group">
-          <div className="relative overflow-hidden bg-card border border-card-border rounded-lg p-6 sm:p-8 card-glow hover:border-accent/30 transition-colors">
+          <div className="card-base p-6 sm:p-8 card-glow hover:border-accent/30 transition-colors">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="font-mono text-xs tracking-widest text-accent-light uppercase">
+                <span className="meta-label-xs text-accent-light">
                   Featured Analysis
                 </span>
-                <h3 className="font-display text-[clamp(28px,6vw,44px)] leading-none text-white mt-2">
+                <h3 className="font-display text-featured text-white mt-2">
                   NU — IS IT <span className="text-accent-light">A BUY?</span>
                 </h3>
                 <p className="text-muted text-sm mt-2 font-mono">
@@ -167,13 +167,13 @@ export default function Home() {
       {/* THM Featured Card */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-10">
         <Link href="/thm-review" className="block group">
-          <div className="relative overflow-hidden bg-card border border-card-border rounded-lg p-6 sm:p-8 card-glow hover:border-accent/30 transition-colors">
+          <div className="card-base p-6 sm:p-8 card-glow hover:border-accent/30 transition-colors">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="font-mono text-xs tracking-widest text-accent-light uppercase">
+                <span className="meta-label-xs text-accent-light">
                   New Review
                 </span>
-                <h3 className="font-display text-[clamp(28px,6vw,44px)] leading-none text-white mt-2">
+                <h3 className="font-display text-featured text-white mt-2">
                   THM — BUY IT <span className="text-accent-light">OR NOT?</span>
                 </h3>
                 <p className="text-muted text-sm mt-2 font-mono">
@@ -197,13 +197,13 @@ export default function Home() {
       <div className="sm:hidden max-w-5xl mx-auto px-4 mb-6 flex flex-col gap-2">
         <Link
           href="/nu-analysis"
-          className="block text-center font-mono text-xs tracking-widest uppercase text-muted hover:text-accent-light border border-card-border rounded px-4 py-3 transition-colors"
+          className="block text-center meta-label-xs text-muted hover:text-accent-light border border-card-border rounded px-4 py-3 transition-colors"
         >
           NU Analysis &rarr;
         </Link>
         <Link
           href="/thm-review"
-          className="block text-center font-mono text-xs tracking-widest uppercase text-muted hover:text-accent-light border border-card-border rounded px-4 py-3 transition-colors"
+          className="block text-center meta-label-xs text-muted hover:text-accent-light border border-card-border rounded px-4 py-3 transition-colors"
         >
           THM Review &rarr;
         </Link>
@@ -213,7 +213,7 @@ export default function Home() {
         {/* Section header */}
         <div className="flex items-center gap-3 mb-8">
           <div className="flex-1 h-px bg-card-border" />
-          <span className="font-mono text-xs tracking-widest text-muted uppercase">
+          <span className="meta-label-xs text-muted">
             Latest Updates
           </span>
           <div className="flex-1 h-px bg-card-border" />

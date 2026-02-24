@@ -19,6 +19,9 @@ const config: Config = {
         bear: "#FF1744",
         base: "#FFD600",
         muted: "#B8B4CC",
+        // Comparison accent (used for VS sections, e.g. ENVA orange)
+        compare: "#FF7A1A",
+        "compare-light": "#FFB07A",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

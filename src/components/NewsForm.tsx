@@ -31,14 +31,14 @@ export default function NewsForm({ initialValues, onSubmit, onCancel }: NewsForm
   const isEditing = !!initialValues;
 
   return (
-    <div className="relative overflow-hidden bg-card rounded-lg border border-card-border p-6 card-glow">
+    <div className="card-base p-6 card-glow">
       <h2 className="font-display text-2xl tracking-wide text-white mb-6">
         {isEditing ? "EDIT UPDATE" : "ADD UPDATE"}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Title */}
         <div>
-          <label className="block text-xs font-mono tracking-widest uppercase text-muted mb-2" htmlFor="title">
+          <label className="block meta-label-xs text-muted mb-2" htmlFor="title">
             Title <span className="text-accent">*</span>
           </label>
           <input
@@ -54,7 +54,7 @@ export default function NewsForm({ initialValues, onSubmit, onCancel }: NewsForm
 
         {/* Category */}
         <div>
-          <label className="block text-xs font-mono tracking-widest uppercase text-muted mb-2" htmlFor="category">
+          <label className="block meta-label-xs text-muted mb-2" htmlFor="category">
             Category
           </label>
           <select
@@ -71,7 +71,7 @@ export default function NewsForm({ initialValues, onSubmit, onCancel }: NewsForm
 
         {/* Content */}
         <div>
-          <label className="block text-xs font-mono tracking-widest uppercase text-muted mb-2" htmlFor="content">
+          <label className="block meta-label-xs text-muted mb-2" htmlFor="content">
             Content <span className="text-accent">*</span>
           </label>
           <textarea
@@ -90,13 +90,13 @@ export default function NewsForm({ initialValues, onSubmit, onCancel }: NewsForm
           <button
             type="button"
             onClick={onCancel}
-            className="px-5 py-2.5 text-sm font-semibold text-muted bg-transparent border border-card-border rounded tracking-wide uppercase hover:text-white hover:border-white/20 transition-colors"
+            className="btn-secondary"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="px-5 py-2.5 text-sm font-semibold text-white bg-accent rounded tracking-wide uppercase hover:bg-accent-light transition-colors"
+            className="btn-primary"
           >
             {isEditing ? "Save Changes" : "Publish"}
           </button>
