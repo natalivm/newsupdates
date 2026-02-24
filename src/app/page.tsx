@@ -69,73 +69,23 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Header */}
       <header className="border-b border-card-border bg-surface/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Link href="/" className="group">
-              <h1 className="font-display text-3xl tracking-wider text-white group-hover:text-accent-light transition-colors">
-                NEWS UPDATES
-              </h1>
-            </Link>
-            <nav className="hidden sm:flex items-center gap-4">
-              <Link
-                href="/"
-                className="meta-label-xs text-accent-light border-b border-accent-light pb-0.5"
-              >
-                Home
-              </Link>
-              <Link
-                href="/nu-analysis"
-                className="meta-label-xs text-muted hover:text-accent-light transition-colors"
-              >
-                NU Analysis
-              </Link>
-              <Link
-                href="/thm-review"
-                className="meta-label-xs text-muted hover:text-accent-light transition-colors"
-              >
-                THM Review
-              </Link>
-            </nav>
-          </div>
-          {!showForm && (
-            <button
-              onClick={() => setShowForm(true)}
-              className="btn-primary animate-glow-pulse"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
-              Add Update
-            </button>
-          )}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4">
         </div>
       </header>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="hero-glow absolute inset-0 pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 relative">
           <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 rounded px-3 py-1.5 mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent-light animate-pulse-dot" />
-              <span className="meta-label-xs text-accent-light">
-                Live Updates
-              </span>
-            </div>
-            <h2 className="font-display text-hero text-white mb-6">
-              FINANCIAL<br />
-              <span className="text-accent-light" style={{ WebkitTextStroke: "1px rgba(255,0,112,0.5)" }}>
-                NEWS
-              </span>
+            <h2 className="font-display text-lg sm:text-xl tracking-wider text-white/80">
+              FINANCIAL REPORT
             </h2>
-            <p className="text-lg sm:text-xl text-white/70 font-light max-w-lg leading-relaxed">
-              Manage and publish your latest financial news and stock analysis.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Featured Analysis Card */}
+      {/* Featured Analysis Card — NU (accent pink) */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 -mt-4 mb-10">
         <Link href="/nu-analysis" className="block group">
           <div className="card-base p-6 sm:p-8 card-glow hover:border-accent/30 transition-colors">
@@ -145,7 +95,7 @@ export default function Home() {
                   Featured Analysis
                 </span>
                 <h3 className="font-display text-featured text-white mt-2">
-                  NU — IS IT <span className="text-accent-light">A BUY?</span>
+                  NU vs ENVA <span className="text-accent-light">COMPARISON</span>
                 </h3>
                 <p className="text-muted text-sm mt-2 font-mono">
                   NYSE: NU &middot; Forward P/E 27x &middot; ROE 31%
@@ -164,24 +114,24 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* THM Featured Card */}
+      {/* THM Featured Card — (compare orange) */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-10">
         <Link href="/thm-review" className="block group">
-          <div className="card-base p-6 sm:p-8 card-glow hover:border-accent/30 transition-colors">
+          <div className="card-base p-6 sm:p-8 card-glow hover:border-compare/30 transition-colors">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="meta-label-xs text-accent-light">
+                <span className="meta-label-xs text-compare">
                   New Review
                 </span>
                 <h3 className="font-display text-featured text-white mt-2">
-                  THM — BUY IT <span className="text-accent-light">OR NOT?</span>
+                  THM — A CALL OPTION <span className="text-compare">ON GOLD</span>
                 </h3>
                 <p className="text-muted text-sm mt-2 font-mono">
                   Int&apos;l Tower Hill Mines &middot; Gold $5,226 &middot; Mkt Cap ~$700M
                 </p>
               </div>
               <div className="shrink-0">
-                <span className="inline-flex items-center gap-2 px-5 py-3 border border-accent/40 text-accent-light font-semibold text-sm rounded uppercase tracking-wide group-hover:bg-accent/10 transition-colors">
+                <span className="inline-flex items-center gap-2 px-5 py-3 border border-compare/40 text-compare font-semibold text-sm rounded uppercase tracking-wide group-hover:bg-compare/10 transition-colors">
                   Read Review
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
