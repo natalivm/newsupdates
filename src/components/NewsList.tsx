@@ -41,7 +41,7 @@ export default function NewsList({ items, onEdit, onDelete }: NewsListProps) {
       {items.map((item, i) => (
         <article
           key={item.id}
-          className="relative overflow-hidden bg-card rounded-lg border border-card-border p-6 hover:border-accent/20 transition-all card-glow animate-slide-up"
+          className="card-base p-6 hover:border-accent/20 transition-all card-glow animate-slide-up"
           style={{ animationDelay: `${i * 0.05}s` }}
         >
           <div className="flex items-start justify-between gap-4">
