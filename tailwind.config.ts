@@ -7,7 +7,26 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        bg: "#06040A",
+        surface: "#0d0d14",
+        card: "#110D16",
+        "card-border": "rgba(255,255,255,0.07)",
+        accent: "#FF0070",
+        "accent-light": "#FF5FA3",
+        bull: "#00E676",
+        bear: "#FF1744",
+        base: "#FFD600",
+        muted: "#B8B4CC",
+      },
+      fontFamily: {
+        sans: ["Outfit", "sans-serif"],
+        display: ["Bebas Neue", "sans-serif"],
+        serif: ["DM Serif Display", "serif"],
+        mono: ["IBM Plex Mono", "monospace"],
+      },
+    },
   },
   plugins: [],
 };

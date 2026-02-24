@@ -31,37 +31,37 @@ export default function NewsForm({ initialValues, onSubmit, onCancel }: NewsForm
   const isEditing = !!initialValues;
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-5">
-        {isEditing ? "Edit News Update" : "Add News Update"}
+    <div className="relative overflow-hidden bg-card rounded-lg border border-card-border p-6 card-glow">
+      <h2 className="font-display text-2xl tracking-wide text-white mb-6">
+        {isEditing ? "EDIT UPDATE" : "ADD UPDATE"}
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-5">
         {/* Title */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="title">
-            Title <span className="text-red-500">*</span>
+          <label className="block text-xs font-mono tracking-widest uppercase text-muted mb-2" htmlFor="title">
+            Title <span className="text-accent">*</span>
           </label>
           <input
             id="title"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter news title…"
+            placeholder="Enter news title..."
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-surface border border-card-border rounded text-sm text-white placeholder-muted/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
           />
         </div>
 
         {/* Category */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="category">
+          <label className="block text-xs font-mono tracking-widest uppercase text-muted mb-2" htmlFor="category">
             Category
           </label>
           <select
             id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-surface border border-card-border rounded text-sm text-white focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
           >
             {CATEGORIES.map((c) => (
               <option key={c} value={c}>{c}</option>
@@ -71,17 +71,17 @@ export default function NewsForm({ initialValues, onSubmit, onCancel }: NewsForm
 
         {/* Content */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="content">
-            Content <span className="text-red-500">*</span>
+          <label className="block text-xs font-mono tracking-widest uppercase text-muted mb-2" htmlFor="content">
+            Content <span className="text-accent">*</span>
           </label>
           <textarea
             id="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="Write your news content here…"
+            placeholder="Write your news content here..."
             required
             rows={6}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-y"
+            className="w-full px-4 py-3 bg-surface border border-card-border rounded text-sm text-white placeholder-muted/50 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors resize-y"
           />
         </div>
 
@@ -90,15 +90,15 @@ export default function NewsForm({ initialValues, onSubmit, onCancel }: NewsForm
           <button
             type="button"
             onClick={onCancel}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-5 py-2.5 text-sm font-semibold text-muted bg-transparent border border-card-border rounded tracking-wide uppercase hover:text-white hover:border-white/20 transition-colors"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-5 py-2.5 text-sm font-semibold text-white bg-accent rounded tracking-wide uppercase hover:bg-accent-light transition-colors"
           >
-            {isEditing ? "Save Changes" : "Publish Update"}
+            {isEditing ? "Save Changes" : "Publish"}
           </button>
         </div>
       </form>

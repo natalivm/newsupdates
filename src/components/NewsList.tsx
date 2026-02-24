@@ -23,44 +23,51 @@ function formatDate(iso: string) {
 export default function NewsList({ items, onEdit, onDelete }: NewsListProps) {
   if (items.length === 0) {
     return (
-      <div className="text-center py-20">
-        <div className="text-5xl mb-4">📭</div>
-        <h3 className="text-lg font-medium text-gray-700 mb-1">No news updates yet</h3>
-        <p className="text-sm text-gray-500">Click &quot;Add Update&quot; to publish your first news item.</p>
+      <div className="text-center py-20 animate-fade-in">
+        <div className="text-6xl mb-4 opacity-50">📭</div>
+        <h3 className="font-display text-2xl tracking-wide text-white/80 mb-2">NO UPDATES YET</h3>
+        <p className="text-sm text-muted font-mono tracking-wide">
+          Click &quot;Add Update&quot; to publish your first news item.
+        </p>
       </div>
     );
   }
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-gray-500">{items.length} update{items.length !== 1 ? "s" : ""}</p>
-      {items.map((item) => (
+      <p className="text-sm text-muted font-mono tracking-wide">
+        {items.length} update{items.length !== 1 ? "s" : ""}
+      </p>
+      {items.map((item, i) => (
         <article
           key={item.id}
-          className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow"
+          className="relative overflow-hidden bg-card rounded-lg border border-card-border p-6 hover:border-accent/20 transition-all card-glow animate-slide-up"
+          style={{ animationDelay: `${i * 0.05}s` }}
         >
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1 min-w-0">
               {/* Category + date */}
-              <div className="flex items-center gap-2 mb-2 flex-wrap">
+              <div className="flex items-center gap-3 mb-3 flex-wrap">
                 <span
-                  className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${
+                  className={`inline-block px-2.5 py-0.5 rounded text-xs font-semibold tracking-wide uppercase font-mono ${
                     CATEGORY_COLORS[item.category] ?? CATEGORY_COLORS.General
                   }`}
                 >
                   {item.category}
                 </span>
-                <span className="text-xs text-gray-400">{formatDate(item.createdAt)}</span>
+                <span className="text-xs text-muted/70 font-mono">{formatDate(item.createdAt)}</span>
                 {item.updatedAt !== item.createdAt && (
-                  <span className="text-xs text-gray-400 italic">(edited)</span>
+                  <span className="text-xs text-muted/50 italic font-mono">(edited)</span>
                 )}
               </div>
 
               {/* Title */}
-              <h2 className="text-base font-semibold text-gray-900 mb-2">{item.title}</h2>
+              <h2 className="text-lg font-semibold text-white mb-2 leading-tight">{item.title}</h2>
 
               {/* Content */}
-              <p className="text-sm text-gray-600 whitespace-pre-wrap leading-relaxed">{item.content}</p>
+              <p className="text-sm text-white/70 whitespace-pre-wrap leading-relaxed font-light">
+                {item.content}
+              </p>
             </div>
 
             {/* Actions */}
@@ -68,7 +75,7 @@ export default function NewsList({ items, onEdit, onDelete }: NewsListProps) {
               <button
                 onClick={() => onEdit(item)}
                 title="Edit"
-                className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                className="p-2 text-muted/60 hover:text-accent-light hover:bg-accent/10 rounded-lg transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -82,7 +89,7 @@ export default function NewsList({ items, onEdit, onDelete }: NewsListProps) {
               <button
                 onClick={() => onDelete(item.id)}
                 title="Delete"
-                className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                className="p-2 text-muted/60 hover:text-bear hover:bg-bear/10 rounded-lg transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path

@@ -11,11 +11,11 @@ export const CATEGORIES = [
 export type Category = (typeof CATEGORIES)[number];
 
 export const CATEGORY_COLORS: Record<string, string> = {
-  General: "bg-gray-100 text-gray-700",
-  Technology: "bg-blue-100 text-blue-700",
-  Business: "bg-green-100 text-green-700",
-  Sports: "bg-orange-100 text-orange-700",
-  Entertainment: "bg-purple-100 text-purple-700",
-  Health: "bg-red-100 text-red-700",
-  Science: "bg-teal-100 text-teal-700",
+  General: "bg-white/10 text-white/80",
+  Technology: "bg-blue-500/20 text-blue-400",
+  Business: "bg-emerald-500/20 text-emerald-400",
+  Sports: "bg-orange-500/20 text-orange-400",
+  Entertainment: "bg-purple-500/20 text-purple-400",
+  Health: "bg-red-500/20 text-red-400",
+  Science: "bg-teal-500/20 text-teal-400",
 };
