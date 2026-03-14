@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Employee } from '../data/types';
 import { getBadgeById } from '../data/badges';
 import {
@@ -9,6 +9,8 @@ import {
   formatTenure,
   yearsAtCompany,
 } from '../utils';
+
+const PHOTO_KEY_PREFIX = 'bluetile-photo-';
 
 interface Props {
   employee: Employee;
@@ -21,6 +23,29 @@ const EmployeeCard: React.FC<Props> = ({ employee }) => {
   const hasAnniversary = isWorkAnniversaryToday(employee.joinedDate);
   const tenure = formatTenure(employee.joinedDate);
   const anniversaryYears = yearsAtCompany(employee.joinedDate);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const [customPhoto, setCustomPhoto] = useState<string | null>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(PHOTO_KEY_PREFIX + employee.id);
+    if (saved) setCustomPhoto(saved);
+  }, [employee.id]);
+
+  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const dataUrl = reader.result as string;
+      localStorage.setItem(PHOTO_KEY_PREFIX + employee.id, dataUrl);
+      setCustomPhoto(dataUrl);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const photoSrc = customPhoto || employee.photo;
 
   return (
     <div className={`card${hasAnniversary ? ' card--anniversary' : ''}${hasBirthday ? ' card--birthday' : ''}`}>
@@ -47,9 +72,23 @@ const EmployeeCard: React.FC<Props> = ({ employee }) => {
       <div className="card-photo-wrapper">
         <img
           className="card-photo"
-          src={employee.photo}
+          src={photoSrc}
           alt={employee.name}
           loading="lazy"
+        />
+        <button
+          className="photo-upload-btn"
+          title="Upload photo"
+          onClick={() => fileInputRef.current?.click()}
+        >
+          +
+        </button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          className="photo-upload-input"
+          onChange={handlePhotoUpload}
         />
         {hasBirthday && (
           <div className="birthday-indicator" title="Birthday today!">🎂</div>

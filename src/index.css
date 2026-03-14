@@ -243,6 +243,43 @@ body {
   border: 2px solid var(--border);
 }
 
+.photo-upload-btn {
+  position: absolute;
+  bottom: 0.35rem;
+  right: -0.2rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 3;
+  padding: 0;
+}
+
+.card:hover .photo-upload-btn {
+  opacity: 1;
+}
+
+.photo-upload-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.photo-upload-input {
+  display: none;
+}
+
 .birthday-indicator {
   position: absolute;
   bottom: calc(50% - 28px);
