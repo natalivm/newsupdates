@@ -17,3 +17,10 @@ setTimeout(() => {
     setTimeout(() => splash.remove(), 400);
   }
 }, 800);
+
+// Register service worker for PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/BlueTile/sw.js').catch(() => {});
+  });
+}
