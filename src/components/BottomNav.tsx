@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type Tab = 'home' | 'employees';
+export type Tab = 'home' | 'employees' | 'profile';
 
 interface Props {
   active: Tab;

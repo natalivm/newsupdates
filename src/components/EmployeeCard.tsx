@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import { Employee, DEPT_COLORS } from '../data/types';
 import { getBadgeById } from '../data/badges';
 import {
@@ -10,46 +10,26 @@ import {
   yearsAtCompany,
 } from '../utils';
 
-const PHOTO_KEY_PREFIX = 'bluetile-photo-';
-
 interface Props {
   employee: Employee;
+  onSelect: (employee: Employee) => void;
 }
 
-const EmployeeCard: React.FC<Props> = ({ employee }) => {
+const EmployeeCard: React.FC<Props> = ({ employee, onSelect }) => {
   const badge = getBadgeById(employee.badgeId);
   const age = calculateAge(employee.dateOfBirth);
   const hasBirthday = isBirthdayToday(employee.dateOfBirth);
   const hasAnniversary = isWorkAnniversaryToday(employee.joinedDate);
   const tenure = formatTenure(employee.joinedDate);
   const anniversaryYears = yearsAtCompany(employee.joinedDate);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const bgColor = DEPT_COLORS[employee.department];
 
-  const [customPhoto, setCustomPhoto] = useState<string | null>(null);
-
-  useEffect(() => {
-    const saved = localStorage.getItem(PHOTO_KEY_PREFIX + employee.id);
-    if (saved) setCustomPhoto(saved);
-  }, [employee.id]);
-
-  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      const dataUrl = reader.result as string;
-      localStorage.setItem(PHOTO_KEY_PREFIX + employee.id, dataUrl);
-      setCustomPhoto(dataUrl);
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const photoSrc = customPhoto || employee.photo;
-
   return (
-    <div className={`card${hasAnniversary ? ' card--anniversary' : ''}${hasBirthday ? ' card--birthday' : ''}`} style={{ '--dept-color': bgColor } as React.CSSProperties}>
+    <div
+      className={`card${hasAnniversary ? ' card--anniversary' : ''}${hasBirthday ? ' card--birthday' : ''}`}
+      style={{ '--dept-color': bgColor } as React.CSSProperties}
+      onClick={() => onSelect(employee)}
+    >
       {hasAnniversary && (
         <div className="anniversary-stars">
           {Array.from({ length: 10 }).map((_, i) => (
@@ -73,23 +53,9 @@ const EmployeeCard: React.FC<Props> = ({ employee }) => {
       <div className="card-photo-wrapper" style={{ backgroundColor: bgColor }}>
         <img
           className="card-photo"
-          src={photoSrc}
+          src={employee.photo}
           alt={employee.name}
           loading="lazy"
-        />
-        <button
-          className="photo-upload-btn"
-          title="Upload photo"
-          onClick={() => fileInputRef.current?.click()}
-        >
-          +
-        </button>
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept="image/*"
-          className="photo-upload-input"
-          onChange={handlePhotoUpload}
         />
         {hasBirthday && (
           <div className="birthday-indicator" title="Birthday today!">🎂</div>
