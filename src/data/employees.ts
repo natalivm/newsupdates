@@ -1,5 +1,7 @@
 import { Employee } from './types';
 
+const BASE = import.meta.env.BASE_URL;
+
 const avatar = (seed: string) =>
   `https://api.dicebear.com/9.x/avataaars/svg?seed=${encodeURIComponent(seed)}`;
 
@@ -7,7 +9,7 @@ export const employees: Employee[] = [
   {
     id: 1,
     name: 'Natalia Petrovska',
-    photo: '/photos/natalia.jpg',
+    photo: `${BASE}photos/natalia.jpg`,
     dateOfBirth: '1987-04-15',
     location: 'Lviv, Ukraine',
     badgeId: 'guest-star',
