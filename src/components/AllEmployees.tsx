@@ -1,13 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { employees } from '../data/employees';
-import { departments, Department } from '../data/types';
+import { departments, Department, Employee } from '../data/types';
 import EmployeeCard from './EmployeeCard';
 
 interface Props {
   initialDepartment?: Department | 'all';
+  onSelectEmployee: (employee: Employee) => void;
 }
 
-const AllEmployees: React.FC<Props> = ({ initialDepartment = 'all' }) => {
+const AllEmployees: React.FC<Props> = ({ initialDepartment = 'all', onSelectEmployee }) => {
   const [search, setSearch] = useState('');
   const [department, setDepartment] = useState<Department | 'all'>(initialDepartment);
 
@@ -78,7 +79,7 @@ const AllEmployees: React.FC<Props> = ({ initialDepartment = 'all' }) => {
         ) : (
           <div className="grid">
             {filtered.map(employee => (
-              <EmployeeCard key={employee.id} employee={employee} />
+              <EmployeeCard key={employee.id} employee={employee} onSelect={onSelectEmployee} />
             ))}
           </div>
         )}

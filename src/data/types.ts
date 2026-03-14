@@ -43,6 +43,8 @@ export interface Employee {
   dateOfBirth: string; // ISO date YYYY-MM-DD
   location: string;
   badgeId: string;
+  pastBadgeIds: string[];
+  country: string; // ISO 2-letter country code
   joinedDate: string; // ISO date YYYY-MM-DD
   department: Department;
 }

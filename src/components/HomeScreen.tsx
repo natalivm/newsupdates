@@ -1,14 +1,15 @@
 import React from 'react';
 import { employees } from '../data/employees';
-import { departments, Department, DEPT_COLORS, DEPT_EMOJIS } from '../data/types';
+import { departments, Department, Employee, DEPT_COLORS, DEPT_EMOJIS } from '../data/types';
 import { isBirthdayToday, isWorkAnniversaryToday, isNewJoiner } from '../utils';
 import FeaturedCard from './FeaturedCard';
 
 interface Props {
   onNavigateDepartment: (dept: Department) => void;
+  onSelectEmployee: (employee: Employee) => void;
 }
 
-const HomeScreen: React.FC<Props> = ({ onNavigateDepartment }) => {
+const HomeScreen: React.FC<Props> = ({ onNavigateDepartment, onSelectEmployee }) => {
   const birthdayPeople = employees.filter(e => isBirthdayToday(e.dateOfBirth));
   const anniversaryPeople = employees.filter(e => isWorkAnniversaryToday(e.joinedDate));
   const newJoiners = employees.filter(e => isNewJoiner(e.joinedDate));
@@ -38,13 +39,13 @@ const HomeScreen: React.FC<Props> = ({ onNavigateDepartment }) => {
             <h2 className="section-title">Happening Today</h2>
             <div className="featured-scroll">
               {birthdayPeople.map(e => (
-                <FeaturedCard key={`b-${e.id}`} employee={e} tag="birthday" />
+                <FeaturedCard key={`b-${e.id}`} employee={e} tag="birthday" onSelect={onSelectEmployee} />
               ))}
               {anniversaryPeople.map(e => (
-                <FeaturedCard key={`a-${e.id}`} employee={e} tag="anniversary" />
+                <FeaturedCard key={`a-${e.id}`} employee={e} tag="anniversary" onSelect={onSelectEmployee} />
               ))}
               {newJoiners.map(e => (
-                <FeaturedCard key={`n-${e.id}`} employee={e} tag="new" />
+                <FeaturedCard key={`n-${e.id}`} employee={e} tag="new" onSelect={onSelectEmployee} />
               ))}
             </div>
           </section>
