@@ -1,13 +1,13 @@
 {
-  "name": "BlueTile - Employee Directory",
-  "short_name": "BlueTile",
-  "description": "Get to know the awesome humans behind the work",
+  "name": "Word Search",
+  "short_name": "Word Search",
+  "description": "A fun mobile word search game",
   "start_url": "/BlueTile/",
   "scope": "/BlueTile/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#f8faff",
   "theme_color": "#4f46e5",
-  "orientation": "any",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icons/icon-192.png",
